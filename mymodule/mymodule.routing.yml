@@ -26,3 +26,10 @@ mymodule.json:
     _controller: '\Drupal\mymodule\Controller\HelloController::jsonContent'
   requirements:
     _permission: 'access content'
+mymodule.sample:
+  path: '/mymodule/sample'
+  defaults:
+    _title: 'Sample'
+    _form: 'Drupal\mymodule\Form\SampleForm'
+  requirements:
+    _permission: 'access content'

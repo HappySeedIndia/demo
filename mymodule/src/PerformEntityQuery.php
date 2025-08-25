@@ -35,4 +35,13 @@ final class PerformEntityQuery {
     return 'Premium data';
   }
 
+  public function createArticle($title, $type) {
+    $this->entityManager->getStorage('node')->create(
+      [
+        'type' => $type,
+        'title' => $title
+      ],
+    )->save();
+  }
+
 }
