@@ -1,0 +1,28 @@
+mymodule.demo: #route name
+  path: '/demo'
+  defaults:
+    _title: 'Demo Page'
+    _controller: '\Drupal\mymodule\Controller\HelloController::content'
+  requirements:
+    _permission: 'access content'
+
+# Excersise 1
+# Create a route which is allowed only for logged-in user
+mymodule.protected:
+  path: '/demo-protected'
+  defaults:
+    _title: 'Protected Page'
+    _controller: '\Drupal\mymodule\Controller\HelloController::protectedContent'
+  requirements:
+    _role: 'authenticated'
+
+
+# Excersise 2
+# Create a route which returns JSON response
+mymodule.json:
+  path: '/demo-json'
+  defaults:
+    _title: 'JSON Page'
+    _controller: '\Drupal\mymodule\Controller\HelloController::jsonContent'
+  requirements:
+    _permission: 'access content'

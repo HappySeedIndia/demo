@@ -1,0 +1,27 @@
+<?php
+
+/**
+ * @file
+ * Primary module hooks for My Module module.
+ */
+
+// Excercise 4
+function mymodule_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) : void {
+  // print_r('==========');
+  // print_r($form_id);
+  // print_r('==========');
+
+  if($form_id == 'node_article_form') {
+    // Add new form element.
+    $form['test_field'] = [
+      '#type' => 'textfield',
+      '#title' => 'Test field',
+    ];
+    // Alter existing element.
+    $form['field_tags']['widget']['target_id']['#title'] = 'Test title';
+    // Add a new submit function etc.
+  }
+}
+
+// FYI hooks will be completely deprecated in future.
+

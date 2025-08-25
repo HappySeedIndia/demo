@@ -1,0 +1,9 @@
+name: 'My Module'
+type: module
+description: 'A module for D11 code demo.'
+package: QR
+core_version_requirement: ^9 || ^10 || ^11
+dependencies:
+  - drupal:views
+
+# Optional dependency in composer.json

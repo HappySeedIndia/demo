@@ -1,0 +1,14 @@
+services:
+  # Excercise 3
+  mymodule.entity:
+    class: Drupal\mymodule\PerformEntityQuery
+    arguments: ['@entity_type.manager']
+
+  # Excercise 5
+  mymodule.event_subscriber:
+    class: Drupal\mymodule\EventSubscriber\RequestSubscriber
+    arguments: ['@logger.factory']
+    tags:
+      - { name: event_subscriber }
+
+  
