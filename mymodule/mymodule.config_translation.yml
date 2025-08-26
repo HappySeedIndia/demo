@@ -1,0 +1,5 @@
+mymodule.form_config_example:
+  title: 'My Module'
+  base_route_name: mymodule.form_config_example
+  names:
+    - mymodule.settings
