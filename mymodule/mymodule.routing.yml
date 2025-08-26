@@ -26,6 +26,7 @@ mymodule.json:
     _controller: '\Drupal\mymodule\Controller\HelloController::jsonContent'
   requirements:
     _permission: 'access content'
+
 mymodule.sample:
   path: '/mymodule/sample'
   defaults:
@@ -33,3 +34,20 @@ mymodule.sample:
     _form: 'Drupal\mymodule\Form\SampleForm'
   requirements:
     _permission: 'access content'
+
+
+mymodule.permission_example:
+  path: '/demo-permission'
+  defaults:
+    _title: 'Permission example'
+    _controller: '\Drupal\mymodule\Controller\HelloController::demoPermission'
+  requirements:
+    _permission: 'administer mymodule configuration'
+
+mymodule.form_config_example:
+  path: '/admin/config/system/form-config-example'
+  defaults:
+    _title: 'Form config example'
+    _form: 'Drupal\mymodule\Form\FormConfigExample'
+  requirements:
+    _permission: 'administer site configuration'

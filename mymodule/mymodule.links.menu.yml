@@ -1,0 +1,5 @@
+mymodule.form_config_example:
+  title: Form config example
+  parent: system.admin_config_system
+  route_name: mymodule.form_config_example
+  weight: 10

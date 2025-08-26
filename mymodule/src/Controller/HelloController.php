@@ -44,4 +44,12 @@ final class HelloController extends ControllerBase {
     ];
     return new JsonResponse($content);
   }
+
+  public function demoPermission(): array {
+    $build['content'] = [
+      '#type' => 'item',
+      '#markup' => $this->t('This requires mymodule permissions.'),
+    ];
+    return $build;
+  }
 }
