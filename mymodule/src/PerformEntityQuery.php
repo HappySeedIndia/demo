@@ -7,10 +7,15 @@ namespace Drupal\mymodule;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 
 /**
- * @todo Add class description.
+ * Performs entity query.
  */
 final class PerformEntityQuery {
 
+  /**
+   * Entity manager service.
+   *
+   * @var entityManager Drupal\Core\Entity\EntityTypeManagerInterface
+   */
   protected $entityManager;
 
   /**
@@ -23,23 +28,29 @@ final class PerformEntityQuery {
   }
 
   /**
-   * @todo Add method description.
+   * Loads a single node.
    */
   public function doSomething($nid = 1) {
     $node = $this->entityManager->getStorage('node')->load($nid);
     return $node;
   }
 
+  /**
+   * Returns premium data.
+   */
   public function isPremium() {
-    // complex sql, api.
+    // Complex sql, api.
     return 'Premium data';
   }
 
+  /**
+   * Creates a node using entity manager.
+   */
   public function createArticle($title, $type) {
     $this->entityManager->getStorage('node')->create(
       [
         'type' => $type,
-        'title' => $title
+        'title' => $title,
       ],
     )->save();
   }

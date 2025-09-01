@@ -41,23 +41,6 @@ final class FormConfigExample extends ConfigFormBase {
   /**
    * {@inheritdoc}
    */
-  public function validateForm(array &$form, FormStateInterface $form_state): void {
-    // @todo Validate the form here.
-    // Example:
-    // @code
-    //   if ($form_state->getValue('example') === 'wrong') {
-    //     $form_state->setErrorByName(
-    //       'message',
-    //       $this->t('The value is not correct.'),
-    //     );
-    //   }
-    // @endcode
-    parent::validateForm($form, $form_state);
-  }
-
-  /**
-   * {@inheritdoc}
-   */
   public function submitForm(array &$form, FormStateInterface $form_state): void {
     $this->config('mymodule.settings')
       ->set('example', $form_state->getValue('example'))

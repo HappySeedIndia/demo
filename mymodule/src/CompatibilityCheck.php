@@ -1,13 +1,21 @@
 <?php
-// Example 1: Using create_function() (deprecated in PHP 7.2+, removed in 8.0)
-$fn = create_function('$a,$b', 'return $a + $b;'); // ❌ Will be flagged
+
+/**
+ * @file
+ * Example 1: Using create_function() (deprecated in PHP 7.2+, removed in 8.0)
+ */
+
+// ❌ Will be flagged
+$fn = create_function('$a,$b', 'return $a + $b;');
 
 // Example 2: Using each() function (deprecated in PHP 7.2)
 $array = [1, 2, 3];
-while (list($key, $val) = each($array)) { // ❌ Deprecated
-    echo $val;
+// ❌ Deprecated
+while ([$key, $val] = each($array)) {
+  echo $val;
 }
 
 // Example 3: Array and string offset using curly braces (deprecated in PHP 7.4)
 $str = "Hello";
-echo $str{1}; // ❌ Deprecated
+// ❌ Deprecated
+echo $str{1};

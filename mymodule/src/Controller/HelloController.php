@@ -6,7 +6,6 @@ namespace Drupal\mymodule\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
 use Symfony\Component\HttpFoundation\JsonResponse;
-use Symfony\Component\HttpFoundation\RequestStack;
 
 /**
  * Returns responses for My Module routes.
@@ -28,6 +27,9 @@ final class HelloController extends ControllerBase {
     return $build;
   }
 
+  /**
+   * Returns protected data.
+   */
   public function protectedContent(): array {
     $build['content'] = [
       '#type' => 'item',
@@ -37,14 +39,20 @@ final class HelloController extends ControllerBase {
     return $build;
   }
 
+  /**
+   * Returns JSON data.
+   */
   public function jsonContent(): JsonResponse {
     $content = [
       'uid' => 1,
-      'data' => ['heading' => 'JSON']
+      'data' => ['heading' => 'JSON'],
     ];
     return new JsonResponse($content);
   }
 
+  /**
+   * Demonstrates permission check.
+   */
   public function demoPermission(): array {
     $build['content'] = [
       '#type' => 'item',
@@ -52,4 +60,5 @@ final class HelloController extends ControllerBase {
     ];
     return $build;
   }
+
 }
