@@ -52,4 +52,4 @@ jobs:
 
     - name: Test PHP compatibility
       continue-on-error: false
-      run: ./vendor/bin/phpcs -p mymodule/ --standard=PHPCompatibility --extensions=php,inc,module,install
+      run: ./vendor/bin/phpcs -p mymodule/ --standard=PHPCompatibility --runtime-set testVersion 8.3
