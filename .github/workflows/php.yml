@@ -48,8 +48,8 @@ jobs:
 
     - name: Run code sniffer
       continue-on-error: true
-      run: ./vendor/bin/phpcs -p mymodule/
+      run: ./vendor/bin/phpcs -ps mymodule/
 
     - name: Test PHP compatibility
       continue-on-error: false
-      run: ./vendor/bin/phpcs -p mymodule/ --standard=PHPCompatibility --runtime-set testVersion 8.3
+      run: ./vendor/bin/phpcs -ps mymodule/ --standard=PHPCompatibility --runtime-set testVersion 8.3
