@@ -48,7 +48,7 @@ jobs:
 
     - name: Run code sniffer
       continue-on-error: true
-      run: ./vendor/bin/phpcs -ps mymodule/
+      run: ./vendor/bin/phpcs -ps mymodule/ --standard=Drupal
 
     - name: Test PHP compatibility
       continue-on-error: false
