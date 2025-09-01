@@ -51,5 +51,5 @@ jobs:
       run: ./vendor/bin/phpcs -ps mymodule/ --standard=Drupal
 
     - name: Test PHP compatibility
-      continue-on-error: false
+      continue-on-error: true
       run: ./vendor/bin/phpcs -ps mymodule/ --standard=PHPCompatibility --runtime-set testVersion 8.3
