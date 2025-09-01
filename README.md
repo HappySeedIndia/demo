@@ -13,6 +13,7 @@
 ## Git hooks
 
 * mkdir .git/hooks
+* touch .git/hooks/pre-commit
 * chmod +x pre-commit
 
 ```
