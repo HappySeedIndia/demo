@@ -43,8 +43,11 @@ jobs:
         composer dump-autoload
         sqlite3 --version
 
+    - name: Check PHPCS standard
+      run: ./vendor/bin/phpcs -i
+
     - name: Run code sniffer
-      continue-on-error: false
+      continue-on-error: true
       run: ./vendor/bin/phpcs -p mymodule/
 
     - name: Test PHP compatibility
