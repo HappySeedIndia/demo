@@ -3,14 +3,14 @@
     "description": "Test repository.",
     "require-dev": {
         "squizlabs/php_codesniffer": "^3.13",
-        "drupal/coder": "^8.3"
+        "drupal/coder": "^8.3",
+        "phpcompatibility/php-compatibility": "^9.3"
     },
     "autoload": {
         "psr-4": {
             "Gautamdas\\Custom\\": "src/"
         }
     },
-    "require": {},
     "config": {
         "allow-plugins": {
             "dealerdirect/phpcodesniffer-composer-installer": true
