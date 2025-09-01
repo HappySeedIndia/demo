@@ -1,15 +1,18 @@
 ## PHPCompatibility
 
-### Installation
+#### Installation
+
 `composer require phpcompatibility/php-compatibility --dev`
 
-### Running compatability checker.
+#### Running compatability checker.
+
 `vendor/bin/phpcs --standard=PHPCompatibility --runtime-set testVersion 8.4 mymodule/`
 
 
 ## Git hooks
-mkdir .git/hooks
-chmod +x pre-commit
+
+* mkdir .git/hooks
+* chmod +x pre-commit
 
 ```
 #!/bin/sh
