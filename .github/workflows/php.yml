@@ -44,9 +44,9 @@ jobs:
         sqlite3 --version
 
     - name: Run code sniffer
-      continue-on-error: true
+      continue-on-error: false
       run: ./vendor/bin/phpcs -p mymodule/
 
     - name: Test PHP compatibility
-      continue-on-error: true
-      run: ./vendor/bin/phpcs -p tests/ --standard=PHPCompatibility --extensions=php,inc,module,install
+      continue-on-error: false
+      run: ./vendor/bin/phpcs -p mymodule/ --standard=PHPCompatibility --extensions=php,inc,module,install
