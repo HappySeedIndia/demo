@@ -1,4 +1,5 @@
 ## PHPCompatibility
+[PHP Release Cycle](https://www.php.net/supported-versions.php)
 
 #### Installation
 
@@ -22,3 +23,5 @@ if [ $? -ne 0 ]; then
   exit 1
 fi
 ```
+
+## Pass -s 

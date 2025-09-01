@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ruleset name="qr_check">
+  <arg name="extensions" value="engine,inc,install,module,php,profile,test,theme,yml"/>
+  <description>QR custom guidelines.</description>
+
+  <!-- sniffs -->
+  <!-- <rule ref="PHPCompatibility"/> -->
+  <!-- <rule ref="Drupal"/> -->
+
+<!-- Exclude some pattern -->
+  <!-- <exclude-pattern>src</exclude-pattern> -->
+
+</ruleset>
