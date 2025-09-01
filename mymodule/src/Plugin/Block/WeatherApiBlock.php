@@ -11,7 +11,9 @@ use Drupal\Core\StringTranslation\TranslatableMarkup;
 /**
  * Provides a weather api block.
  */
-// Meta-data
+/**
+ * Meta-data.
+ */
 #[Block(
   id: 'mymodule_weather_api',
   admin_label: new TranslatableMarkup('Weather API'),

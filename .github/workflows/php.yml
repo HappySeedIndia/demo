@@ -1,0 +1,55 @@
+name: PHP Composer
+
+on:
+  push:
+    branches: [ "phpcs" ]
+  pull_request:
+    branches: [ "master" ]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Setup PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        # Using the php_version input here.
+        php-version: 8.3
+        extensions: gd
+        tools: phpunit
+
+    - name: Validate composer.json and composer.lock
+      run: composer validate
+
+    - name: Cache Composer packages
+      id: composer-cache
+      uses: actions/cache@v3
+      with:
+        path: vendor
+        key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-php-
+
+    - name: Install dependencies
+      run: |
+        composer install --prefer-dist --no-progress
+        composer dump-autoload
+        sqlite3 --version
+
+    - name: Check PHPCS standard
+      run: ./vendor/bin/phpcs -i
+
+    - name: Run code sniffer
+      continue-on-error: true
+      run: ./vendor/bin/phpcs -ps mymodule/ --standard=Drupal
+
+    - name: Test PHP compatibility
+      continue-on-error: true
+      run: ./vendor/bin/phpcs -ps mymodule/ --standard=PHPCompatibility --runtime-set testVersion 8.3

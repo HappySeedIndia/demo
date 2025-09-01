@@ -7,14 +7,18 @@ namespace Drupal\mymodule\EventSubscriber;
 use Drupal\Core\Logger\LoggerChannelFactoryInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpKernel\Event\RequestEvent;
-use Symfony\Component\HttpKernel\Event\ResponseEvent;
 use Symfony\Component\HttpKernel\KernelEvents;
 
 /**
- * @todo Add description for this subscriber.
+ * Add description for this subscriber.
  */
 final class RequestSubscriber implements EventSubscriberInterface {
 
+  /**
+   * Entity manager service.
+   *
+   * @var logger Drupal\Core\Logger\LoggerChannelFactoryInterface
+   */
   protected $logger;
 
   /**
@@ -25,13 +29,14 @@ final class RequestSubscriber implements EventSubscriberInterface {
   ) {
     $this->logger = $factory;
   }
+
   /**
    * Kernel request event handler.
    */
   public function onKernelRequest(RequestEvent $event): void {
     // Logs a notice to "my_module" channel.
     $this->logger->get('mymodule')->notice('This is a notice');
-    //  Types of log.
+    // Types of log.
     // $this->logger->get('mymodule')->error($message);
   }
 
