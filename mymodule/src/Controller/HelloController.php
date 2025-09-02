@@ -19,12 +19,15 @@ final class HelloController extends ControllerBase {
     $data = \Drupal::service('mymodule.entity')->isPremium();
 
     // Render array.
-    $build['content'] = [
-      '#type' => 'item',
-      '#markup' => $data,
-    ];
+    // $build['content'] = [
+    //   '#type' => 'item',
+    //   '#markup' => $data,
+    // ];
 
-    return $build;
+    // return $build;
+
+    // Wrong: Must return render array or Response object, not string.
+    return "This must return render array";
   }
 
   /**

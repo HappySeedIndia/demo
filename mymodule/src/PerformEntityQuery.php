@@ -31,7 +31,8 @@ final class PerformEntityQuery {
    * Loads a single node.
    */
   public function doSomething($nid = 1) {
-    $node = $this->entityManager->getStorage('node')->load($nid);
+    // Error: getStorage1() doesn't exists.
+    $node = $this->entityManager->getStorage1('node')->load($nid);
     return $node;
   }
 

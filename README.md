@@ -25,4 +25,13 @@ if [ $? -ne 0 ]; then
 fi
 ```
 
-## Pass -s 
+## PHPStan
+
+## Generate Baseline
+
+`vendor/bin/phpstan analyze web/modules/custom/mymodule -l 2 --generate-baseline`
+
+
+## Analyze code
+
+`vendor/bin/phpstan analyze web/modules/custom/mymodule`

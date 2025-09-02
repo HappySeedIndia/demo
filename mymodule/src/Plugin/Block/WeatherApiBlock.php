@@ -25,10 +25,13 @@ final class WeatherApiBlock extends BlockBase {
    * {@inheritdoc}
    */
   public function build(): array {
-    $build['content'] = [
-      '#markup' => $this->t('Current weather is 25 degree.'),
-    ];
-    return $build;
+    // $build['content'] = [
+    //   '#markup' => $this->t('Current weather is 25 degree.'),
+    // ];
+    // return $build;
+
+    // Wrong: Must return render array or Response object, not string.
+    return "This must return render array";
   }
 
 }
