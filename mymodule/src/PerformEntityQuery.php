@@ -31,7 +31,7 @@ final class PerformEntityQuery {
    * Loads a single node.
    */
   public function doSomething($nid = 1) {
-    $node = $this->entityManager->getStoragee('node')->load($nid);
+    $node = $this->entityManager->getStorage('node')->load($nid);
     return $node;
   }
 
