@@ -1,0 +1,10 @@
+parameters:
+    level: 5
+    paths:
+        - mymodule
+        #- mytheme
+    excludePaths:
+        - mymodule/src/CompatibilityCheck.php
+    bootstrapFiles:
+        - vendor/autoload.php
+    phpVersion: 80400 # Analyzes code as if it's running on PHP 8.4

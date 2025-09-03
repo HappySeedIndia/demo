@@ -25,4 +25,33 @@ if [ $? -ne 0 ]; then
 fi
 ```
 
-## Pass -s 
+## PHPStan
+
+## PHPStan configuration
+
+Create phpstan.neon file at the root of the project.
+
+```
+parameters:
+    level: 2
+    paths:
+        - web/modules/custom/mymodule
+        #- web/modules/custom/mytheme
+    excludePaths:
+        - web/modules/custom/mymodule/src/CompatibilityCheck.php
+    bootstrapFiles:
+        - vendor/autoload.php
+includes:
+   - phpstan-baseline.neon
+```   
+
+
+## Generate Baseline
+
+`vendor/bin/phpstan analyze web/modules/custom/mymodule -l 2 --generate-baseline`
+
+
+
+## Analyze code
+
+`vendor/bin/phpstan analyze web/modules/custom/mymodule`

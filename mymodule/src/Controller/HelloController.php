@@ -6,6 +6,8 @@ namespace Drupal\mymodule\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Drupal\mymodule\PerformEntityQuery;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * Returns responses for My Module routes.
@@ -13,11 +15,41 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 final class HelloController extends ControllerBase {
 
   /**
+   * The entity query builder.
+   *
+   * @var \Drupal\mymodule\PerformEntityQuery
+   */
+  protected $entityQuery;
+
+  /**
+   * Hello Controller constructor.
+   *
+   * @param \Drupal\mymodule\PerformEntityQuery $entity_query
+   *   The entity query builder.
+   */
+  public function __construct(PerformEntityQuery $entity_query) {
+    $this->entityQuery = $entity_query;
+  }
+
+  // /**
+  //  * {@inheritdoc}
+  //  *
+  //  * @param \Symfony\Component\DependencyInjection\ContainerInterface $container
+  //  *   The Drupal service container.
+  //  *
+  //  * @return static
+  //  */
+  // public static function create(ContainerInterface $container) {
+  //   return new static(
+  //     $container->get('mymodule.entity')
+  //   );
+  // }
+
+  /**
    * Builds the response.
    */
   public function content(): array {
-    $data = \Drupal::service('mymodule.entity')->isPremium();
-
+    $data = $this->entityQuery->isPremium();
     // Render array.
     $build['content'] = [
       '#type' => 'item',
