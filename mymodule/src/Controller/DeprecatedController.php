@@ -4,8 +4,14 @@ namespace Drupal\mymodule\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
 
+/**
+ * Demonstrates deprecated function calls.
+ */
 class DeprecatedController extends ControllerBase {
 
+  /**
+   * Depreacted use of entity_create().
+   */
   public function content() {
     // Deprecated entity_create().
     $node = entity_create('node', ['type' => 'article']);
@@ -20,7 +26,10 @@ class DeprecatedController extends ControllerBase {
     ];
   }
 
-  function my_render_example() {
+  /**
+   * Deprecated use of drupal_render().
+   */
+  public function renderRxample() {
     $build = [
       '#markup' => '<p>Hello World!</p>',
     ];
@@ -29,7 +38,10 @@ class DeprecatedController extends ControllerBase {
     return drupal_render($build);
   }
 
-  function my_db_example() {
+  /**
+   * Deprecated use of db_query().
+   */
+  public function dbExample() {
     // Deprecated wrapper for database queries.
     $result = db_query("SELECT uid, name FROM {users_field_data} WHERE status = 1");
 
@@ -37,4 +49,5 @@ class DeprecatedController extends ControllerBase {
       \Drupal::logger('demo')->notice("User: @name", ['@name' => $record->name]);
     }
   }
+
 }

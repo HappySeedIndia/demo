@@ -50,8 +50,8 @@ class QueueWorkerDeprecatedAnnotation extends QueueWorkerBase implements Contain
    * {@inheritdoc}
    */
   public function processItem($data) {
-  
-    // @todo: add code
+
+    // @todo add code
   }
 
 }

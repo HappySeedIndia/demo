@@ -57,7 +57,7 @@ return static function (RectorConfig $rectorConfig): void {
       'HelpSection' => 'Drupal\\help\\Attribute\\HelpSection',
       'ViewsFilter' => 'Drupal\\views\\Attribute\\ViewsFilter',
       'TimeZoneFormHelper' => 'Drupal\\Core\\Datetime\\TimeZoneFormHelper',
-       'WatchdogExceptionRector' => 'DrupalRector\\Drupal10\\Rector\\Deprecation\\WatchdogExceptionRector'
+       'WatchdogExceptionRector' => 'DrupalRector\\Drupal10\\Rector\\Deprecation\\WatchdogExceptionRector',
     ];
 
     $configuration = [];
@@ -74,4 +74,6 @@ return static function (RectorConfig $rectorConfig): void {
       \DrupalRector\Drupal10\Rector\Deprecation\AnnotationToAttributeRector::class,
       $configuration,
     );
+
+    $rectorConfig->rule(DrupalRector\Rector\Convert\HookConvertRector::class);
 };
