@@ -7,7 +7,6 @@ namespace Drupal\mymodule\Controller;
 use Drupal\Core\Controller\ControllerBase;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Drupal\mymodule\PerformEntityQuery;
-use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * Returns responses for My Module routes.
@@ -31,19 +30,19 @@ final class HelloController extends ControllerBase {
     $this->entityQuery = $entity_query;
   }
 
-  // /**
-  //  * {@inheritdoc}
-  //  *
-  //  * @param \Symfony\Component\DependencyInjection\ContainerInterface $container
-  //  *   The Drupal service container.
-  //  *
-  //  * @return static
-  //  */
-  // public static function create(ContainerInterface $container) {
-  //   return new static(
-  //     $container->get('mymodule.entity')
-  //   );
-  // }
+  /**
+   * {@inheritdoc}
+   *
+   * @param \Symfony\Component\DependencyInjection\ContainerInterface $container
+   *   The Drupal service container.
+   *
+   * @return static
+   */
+  public static function create(ContainerInterface $container) {
+    return new static(
+      $container->get('mymodule.entity')
+    );
+  }
 
   /**
    * Builds the response.

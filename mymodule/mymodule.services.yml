@@ -12,3 +12,6 @@ services:
       - { name: event_subscriber }
 
   
+  Drupal\mymodule\Hook\MymoduleHooks:
+    class: Drupal\mymodule\Hook\MymoduleHooks
+    autowire: true

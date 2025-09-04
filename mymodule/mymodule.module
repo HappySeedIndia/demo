@@ -1,12 +1,25 @@
 <?php
 
+use Drupal\Core\Hook\Attribute\LegacyHook;
+use Drupal\mymodule\Hook\MymoduleHooks;
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Form\FormStateInterface;
+
 /**
  * @file
  * Primary module hooks for My Module module.
  */
 
+/**
+ * Implements hook_help().
+ */
+#[LegacyHook]
+function mymodule_demo_help($route_name, RouteMatchInterface $route_match) {
+  \Drupal::service(MymoduleHooks::class)->demoHelp($route_name, $route_match);
+}
+
 // Excercise 4
-function mymodule_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) : void {
+function mymodule_form_alter(&$form, FormStateInterface $form_state, $form_id) : void {
   // print_r('==========');
   // print_r($form_id);
   // print_r('==========');
@@ -21,7 +34,15 @@ function mymodule_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_
     $form['field_tags']['widget']['target_id']['#title'] = 'Test title';
     // Add a new submit function etc.
   }
+
+  // Deprecated service:
+  // $path = drupal_get_path('module', 'mymodule');
 }
 
 // FYI hooks will be completely deprecated in future.
 
+/**
+ * Implements hook_user_cancel().
+ */
+function mymodule_user_cancel($edit, UserInterface $account, $method) {
+}
