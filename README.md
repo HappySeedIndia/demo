@@ -55,3 +55,11 @@ includes:
 ## Analyze code
 
 `vendor/bin/phpstan analyze web/modules/custom/mymodule`
+
+
+## Drupal Rector
+
+```
+vendor/bin/rector process web/modules/custom/mymodule --dry-run
+vendor/bin/rector process web/modules/custom/mymodule
+```
