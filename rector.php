@@ -52,7 +52,6 @@ return static function (RectorConfig $rectorConfig): void {
       'ViewBuilder' => 'Drupal\\Core\\Render\\Attribute\\ViewBuilder',
       'FormElement' => 'Drupal\\Core\\Render\\Attribute\\FormElement',
       'Plugin' => 'Drupal\\Component\\Plugin\\Attribute\\Plugin',
-      'QueueWorker' => 'Drupal\\Core\\Queue\\Attribute\\QueueWorker',
       'Condition' => 'Drupal\\Core\\Condition\\Attribute\\Condition',
       'ContextDefinition' => 'Drupal\\Core\\Plugin\\Context\\Attribute\\ContextDefinition',
       'HelpSection' => 'Drupal\\help\\Attribute\\HelpSection',
