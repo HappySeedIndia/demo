@@ -33,7 +33,9 @@ function mymodule_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_
     $form['field_tags']['widget']['target_id']['#title'] = 'Test title';
     // Add a new submit function etc.
   }
+
+  // Deprecated service:
+  $path = drupal_get_path('module', 'mymodule');
 }
 
 // FYI hooks will be completely deprecated in future.
-
